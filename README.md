@@ -1,1 +1,4 @@
-#Shopping program using cmdOptions 
+# Shopping Program Using Package cmdOptions 
+
+## Packages used
+- cmdOptions
