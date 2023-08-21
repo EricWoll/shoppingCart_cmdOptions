@@ -1,7 +1,9 @@
 import Menus.MainMenu as M
+from cmdOptions.Tools import Tools
 
 def main():
-    menu = M.MainMenu()
+    os = Tools.get_system_type()
+    menu = M.MainMenu(os)
 
     menu.run()
 

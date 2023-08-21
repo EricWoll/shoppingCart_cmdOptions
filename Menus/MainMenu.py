@@ -1,14 +1,16 @@
 import cmdOptions.Controller as Contr
+from cmdOptions.Tools import Tools
 from ItemHandling.Cart import Cart
 from ItemHandling.Item import Item
 import os
 
 class MainMenu:
 
-    def __init__(self) -> None:
+    def __init__(self, os_type) -> None:
         self._menu = Contr.Controller()
         self._cart = Cart()
         self.createMenu()
+        self.os_type = os_type
     
     def createMenu(self):
         self._menu.addOption("Add Item", self.addItem)
@@ -16,20 +18,12 @@ class MainMenu:
         self._menu.addOption("List Items", self.listItems)
         self._menu.addOption("Total Item Prices", self.itemPrices)
 
-    @staticmethod
-    def waitForEnter():
-        input("\nPress enter to continue.....")
-
-    @staticmethod
-    def clearScreen():
-        os.system("cls")
-
     def run(self):
-        MainMenu.clearScreen()
+        Tools.clearScreen(self.os_type)
         self._menu.runLoop()
 
     def addItem(self):
-        MainMenu.clearScreen()
+        Tools.clearScreen(self.os_type)
 
         print("Items in your Cart:\n")
         self._cart.printItems()
@@ -45,32 +39,32 @@ class MainMenu:
 
         self._cart.addItem(Item(name, item_price, quantity, discount))
 
-        MainMenu.clearScreen()
+        Tools.clearScreen(self.os_type)
 
     def removeItem(self):
-        MainMenu.clearScreen()
+        Tools.clearScreen(self.os_type)
 
         print("Items in your Cart:\n")
         self._cart.printItems()
         name = input("\nEnter item name to remove: ")
         self._cart.removeItem(name)
 
-        MainMenu.clearScreen()
+        Tools.clearScreen(self.os_type)
 
     def listItems(self):
-        MainMenu.clearScreen()
+        Tools.clearScreen(self.os_type)
 
         print("Items in your Cart:\n")
         self._cart.printItems()
-        MainMenu.waitForEnter()
+        Tools.waitForEnter()
 
-        MainMenu.clearScreen()
+        Tools.clearScreen(self.os_type)
 
     def itemPrices(self):
-        MainMenu.clearScreen()
+        Tools.clearScreen(self.os_type)
 
         self._cart.printItems()
         print(f"\nTotal Price: ${self._cart.ringUpItems()}")
-        MainMenu.waitForEnter()
+        Tools.waitForEnter()
 
-        MainMenu.clearScreen()
+        Tools.clearScreen(self.os_type)
