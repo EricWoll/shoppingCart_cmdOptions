@@ -28,7 +28,7 @@ class Cart:
         return empty
     
     def noItemPrint(self):
-        print(f"{' ': <4} {'None': <15} {'None': <15} {'None': <15} {'None'}")
+        print(f"{' ': <4} {'...': <15} {'...': <15} {'...': <15} {'...'}")
     
     def printItems(self):
         print(f"{' ': <4} {'Name': <15} {'Price': <15} {'discount': <15} {'Quantity'}")

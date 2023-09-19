@@ -46,6 +46,11 @@ class MainMenu:
 
         print("Items in your Cart:\n")
         self._cart.printItems()
+
+        if self._cart.is_empty():
+            self._cart.noItemPrint()
+            print("\n")
+
         name = input("\nEnter item name to remove: ")
         self._cart.removeItem(name)
 
@@ -56,6 +61,11 @@ class MainMenu:
 
         print("Items in your Cart:\n")
         self._cart.printItems()
+
+        if self._cart.is_empty():
+            self._cart.noItemPrint()
+            print("\n")
+
         Tools.waitForEnter()
 
         Tools.clearScreen(self.os_type)
@@ -64,6 +74,11 @@ class MainMenu:
         Tools.clearScreen(self.os_type)
 
         self._cart.printItems()
+
+        if self._cart.is_empty():
+            self._cart.noItemPrint()
+            print("\n")
+
         print(f"\nTotal Price: ${self._cart.ringUpItems()}")
         Tools.waitForEnter()
 
